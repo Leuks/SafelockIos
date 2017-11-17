@@ -12,7 +12,7 @@
         <!--SafeLock-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SafeLock" title="SafeLock" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SafeLock" title="SafeLock" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainController" customModule="SafeLock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,8 +54,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="yes" keyboardType="URL" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pt-7q-mk0">
-                                <rect key="frame" x="16" y="82" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pt-7q-mk0">
+                                <rect key="frame" x="16" y="82" width="71" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -94,13 +94,28 @@
                         <viewLayoutGuide key="safeArea" id="bpE-Xa-F4C"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Website" id="yWK-KC-Ku9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xoo-7w-vxG"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IUD-Fa-FbB"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xoo-7w-vxG">
+                            <connections>
+                                <action selector="cancel:" destination="tNg-Op-quG" id="Hue-jS-vf3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IUD-Fa-FbB">
+                            <connections>
+                                <segue destination="BeG-RV-3mv" kind="unwind" unwindAction="saveEntryWithSender:" id="zdt-pA-lJV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="passwordTextField" destination="3cD-X1-zjK" id="Nlb-IQ-ly0"/>
+                        <outlet property="saveButton" destination="IUD-Fa-FbB" id="I7H-Zt-wFq"/>
+                        <outlet property="usernameTextField" destination="YdM-KD-FW4" id="GBB-Ms-TFE"/>
+                        <outlet property="websiteTextField" destination="JEx-tS-DwH" id="A4Z-V9-PCh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B74-zK-agk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BeG-RV-3mv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="-78"/>
+            <point key="canvasLocation" x="2347.5" y="-78.16901408450704"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mhn-pa-7In">

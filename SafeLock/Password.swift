@@ -9,12 +9,24 @@
 import UIKit
 
 class Password {
-    var name: String!
+    var username: String!
     var website: String!
     var password: String!
 
-    init(name: String, website: String!, password: String!) {
-        self.name = name
+    init?(username: String!, website: String!, password: String!) {
+        guard !website.isEmpty else {
+            return nil
+        }
+
+        guard !username.isEmpty else {
+            return nil
+        }
+
+        guard !password.isEmpty else {
+            return nil
+        }
+
+        self.username = username
         self.website = website
         self.password = password
     }

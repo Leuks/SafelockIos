@@ -8,20 +8,32 @@
 
 import UIKit
 
-class MainController: UIViewController {
+class MainController: UIViewController, UINavigationControllerDelegate {
+    var passwords = [Password]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        loadPasswords()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("save button")
+    //MARK: Navigation
+
+    @IBAction func saveEntry(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? AddWebsiteController, password = sourceViewController.password {
+            passwords.append(password)
+        }
+    }
+
+    //MARK: Private methods
+    private func loadPasswords() {
+        let password = Password.init(username: "johndoe", website: "google.fr", password: "foobar")
+
+        passwords.append(password!)
     }
 }
 

@@ -8,24 +8,75 @@
 
 import UIKit
 
-class AddWebsiteController: UIViewController {
+class AddWebsiteController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var websiteTextField: UITextField!
+
+    var password: Password?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        websiteTextField.delegate = self
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+
+        updateSaveButtonState()
     }
 
     func viewWillAppear() {
-        self.navigationItem.backBarButtonItem?.title = "Back"
-        self.navigationItem.title = "Back";
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    //MARK: Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("save button")
+        super.prepare(for: segue, sender: sender)
+
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            return
+        }
+
+        password = Password.init(username: usernameTextField.text, website: websiteTextField.text, password: passwordTextField.text)
+    }
+
+    //MARK: UITextFieldDelegate
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+
+        guard textField == websiteTextField else {
+            return
+        }
+
+        navigationItem.title = textField.text
+    }
+
+    //MARK: Actions
+
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    //MARK: Private methods
+
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let website = websiteTextField.text ?? ""
+        let username = usernameTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+
+        saveButton.isEnabled = !website.isEmpty && !username.isEmpty && !password.isEmpty
     }
 }
