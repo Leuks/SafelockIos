@@ -14,6 +14,7 @@
 		4811BE651FBCE7EE0094E915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4811BE641FBCE7EE0094E915 /* Assets.xcassets */; };
 		4811BE681FBCE7EE0094E915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4811BE661FBCE7EE0094E915 /* LaunchScreen.storyboard */; };
 		485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */; };
+		48CB872C1FC04BAD00DBA04E /* PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4811BE671FBCE7EE0094E915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4811BE691FBCE7EE0094E915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWebsiteController.swift; sourceTree = "<group>"; };
+		48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				4811BE5D1FBCE7EE0094E915 /* AppDelegate.swift */,
 				4811BE5F1FBCE7EE0094E915 /* MainController.swift */,
+				48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */,
 				4801D7A11FBDC5FE006C1FBF /* Password.swift */,
 				4811BE611FBCE7EE0094E915 /* Main.storyboard */,
 				4811BE641FBCE7EE0094E915 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48CB872C1FC04BAD00DBA04E /* PasswordTableViewCell.swift in Sources */,
 				4801D7A21FBDC5FE006C1FBF /* Password.swift in Sources */,
 				485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */,
 				4811BE601FBCE7EE0094E915 /* MainController.swift in Sources */,
