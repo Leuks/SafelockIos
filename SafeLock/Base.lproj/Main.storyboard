@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SJK-Re-E8b">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -71,18 +71,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="passwordsTableView" destination="SJK-Re-E8b" id="DQs-o7-VLg"/>
-                        <outlet property="searchDisplayController" destination="Fzy-83-6dE" id="qLf-DI-cp7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Fzy-83-6dE">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="nn3-Oj-fPO"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="QVh-xc-vBd"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="8G9-3T-zS4"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="M18-cX-xBZ"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="611.25" y="-78.16901408450704"/>
         </scene>

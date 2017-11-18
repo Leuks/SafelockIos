@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import Fuse
 
-class Password {
-    var username: String!
-    var website: String!
-    var password: String!
+class Password : Fuseable {
+    @objc dynamic var username: String!
+    @objc dynamic var website: String!
+    @objc dynamic var password: String!
+
+    var properties: [FuseProperty] {
+        return [
+            FuseProperty(name: "website", weight: 1)
+        ]
+    }
 
     init?(username: String!, website: String!, password: String!) {
         guard !website.isEmpty else {
