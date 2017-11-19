@@ -12,7 +12,8 @@ import Fuse
 class MainController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
     let fuse = Fuse()
     var passwords = [Password]()
-    var filteredPasswords = [NSAttributedString]()
+    var filteredPasswords = [Password]()
+    var filteredPasswordsWebsites = [NSAttributedString]()
 
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -46,7 +47,10 @@ class MainController: UIViewController, UINavigationControllerDelegate, UITableV
 
     @IBAction func saveEntry(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddWebsiteController, let password = sourceViewController.password {
+            let newIndexPath = IndexPath(row: passwords.count, section: 0)
+
             passwords += [password]
+            passwordsTableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
 
@@ -54,7 +58,7 @@ class MainController: UIViewController, UINavigationControllerDelegate, UITableV
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredPasswords.count
+            return filteredPasswordsWebsites.count
         }
 
         return passwords.count
@@ -70,7 +74,7 @@ class MainController: UIViewController, UINavigationControllerDelegate, UITableV
         var item: NSAttributedString
 
         if searchController.isActive && searchController.searchBar.text != "" {
-            item = filteredPasswords[indexPath.row]
+            item = filteredPasswordsWebsites[indexPath.row]
         } else {
             item = NSAttributedString(string: passwords[indexPath.row].website)
         }
@@ -79,6 +83,39 @@ class MainController: UIViewController, UINavigationControllerDelegate, UITableV
         cell.usernameLabel.text = passwords[indexPath.row].username
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)  {
+        let actionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        if searchController.isActive && searchController.searchBar.text != "" {
+            actionMenu.title = filteredPasswords[indexPath.row].website
+        } else {
+            actionMenu.title = passwords[indexPath.row].website
+        }
+
+        let editAction = UIAlertAction(title: "Edit", style: .default, handler: {
+            (_: UIAlertAction!) -> Void in
+            // let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWebsite")
+            // self.present(viewController!, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "ShowAddWebsite", sender: self)
+        })
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {
+            (alert: UIAlertAction!) -> Void in
+            actionMenu.dismiss(animated: true, completion: nil)
+        })
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            actionMenu.dismiss(animated: true, completion: nil)
+        })
+
+        actionMenu.addAction(deleteAction)
+        actionMenu.addAction(editAction)
+        actionMenu.addAction(cancelAction)
+
+        present(actionMenu, animated: true, completion: nil)
     }
 
     //MARK : SearchDelegate
@@ -91,7 +128,7 @@ class MainController: UIViewController, UINavigationControllerDelegate, UITableV
         let searchStr = searchController.searchBar.text ?? ""
         let results = fuse.search(searchStr, in: passwords)
 
-        filteredPasswords = results.map { (index: Int, _, matchedRanges) in
+        filteredPasswordsWebsites = results.map { (index: Int, _, matchedRanges) in
             let password = passwords[index]
 
             let attributedString = NSMutableAttributedString(string: password.website)
@@ -107,6 +144,8 @@ class MainController: UIViewController, UINavigationControllerDelegate, UITableV
 
             return attributedString
         }
+
+        filteredPasswords = results.map { (index: Int, _, matchedRanges) in return passwords[index] }
 
         passwordsTableView.reloadData()
     }

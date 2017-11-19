@@ -65,7 +65,7 @@
                         <barButtonItem key="backBarButtonItem" title="Retour" id="oVq-G9-hPP"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iDu-pL-MXO">
                             <connections>
-                                <segue destination="ZUR-R0-MAv" kind="presentation" id="C8N-Qg-8eT"/>
+                                <segue destination="ZUR-R0-MAv" kind="presentation" identifier="ShowAddWebsite" id="C8N-Qg-8eT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
