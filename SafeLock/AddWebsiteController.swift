@@ -23,6 +23,12 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
 
+        if password != nil {
+            websiteTextField.text = password?.website
+            usernameTextField.text = password?.username
+            passwordTextField.text = password?.password
+        }
+
         updateSaveButtonState()
     }
 

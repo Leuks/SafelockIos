@@ -9,11 +9,13 @@
 import UIKit
 import Fuse
 
-class MainController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
+class MainController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
     let fuse = Fuse()
     var passwords = [Password]()
     var filteredPasswords = [Password]()
     var filteredPasswordsWebsites = [NSAttributedString]()
+    var editingPassword:Password? = nil
+    var editingIndex: Int? = nil
 
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -47,11 +49,35 @@ class MainController: UIViewController, UINavigationControllerDelegate, UITableV
 
     @IBAction func saveEntry(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddWebsiteController, let password = sourceViewController.password {
-            let newIndexPath = IndexPath(row: passwords.count, section: 0)
+            if editingPassword != nil {
+                let editIndexPath = IndexPath(row: editingIndex!, section: 0)
 
-            passwords += [password]
-            passwordsTableView.insertRows(at: [newIndexPath], with: .automatic)
+                passwords[editIndexPath.row] = password
+                passwordsTableView.reloadRows(at: [editIndexPath], with: .automatic)
+
+                editingPassword = nil
+                editingIndex = nil
+            } else {
+                let newIndexPath = IndexPath(row: passwords.count, section: 0)
+
+                passwords += [password]
+                passwordsTableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // get a reference to the second view controller
+        let vc = segue.destination as! UINavigationController
+
+        guard vc.childViewControllers.count > 0 else {
+            return
+        }
+
+        let addWebsite = vc.childViewControllers[0] as! AddWebsiteController
+        print("add website -> edit")
+
+        addWebsite.password = self.editingPassword
     }
 
     //MARK: TableView
@@ -96,8 +122,9 @@ class MainController: UIViewController, UINavigationControllerDelegate, UITableV
 
         let editAction = UIAlertAction(title: "Edit", style: .default, handler: {
             (_: UIAlertAction!) -> Void in
-            // let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AddWebsite")
-            // self.present(viewController!, animated: true, completion: nil)
+            self.editingPassword = self.passwords[indexPath.row]
+            self.editingIndex = indexPath.row
+
             self.performSegue(withIdentifier: "ShowAddWebsite", sender: self)
         })
 

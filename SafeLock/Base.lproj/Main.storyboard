@@ -176,7 +176,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Iv0-ds-bzQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZUR-R0-MAv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WebsiteView" automaticallyAdjustsScrollViewInsets="NO" id="ZUR-R0-MAv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oiq-vl-nSD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
