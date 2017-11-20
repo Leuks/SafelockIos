@@ -15,6 +15,7 @@
 		4811BE651FBCE7EE0094E915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4811BE641FBCE7EE0094E915 /* Assets.xcassets */; };
 		4811BE681FBCE7EE0094E915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4811BE661FBCE7EE0094E915 /* LaunchScreen.storyboard */; };
 		485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */; };
+		487A88361FC31B08003CFD4F /* ConfirmDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */; };
 		48CB872C1FC04BAD00DBA04E /* PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		4811BE671FBCE7EE0094E915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4811BE691FBCE7EE0094E915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWebsiteController.swift; sourceTree = "<group>"; };
+		487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDeletion.swift; sourceTree = "<group>"; };
 		48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewCell.swift; sourceTree = "<group>"; };
 		726DA8716AE1F1B303DB1843 /* Pods-SafeLock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeLock.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeLock/Pods-SafeLock.release.xcconfig"; sourceTree = "<group>"; };
 		C6296C816BF212A6C7F76957 /* Pods-SafeLock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeLock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeLock/Pods-SafeLock.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				4811BE661FBCE7EE0094E915 /* LaunchScreen.storyboard */,
 				4811BE691FBCE7EE0094E915 /* Info.plist */,
 				485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */,
+				487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */,
 			);
 			path = SafeLock;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487A88361FC31B08003CFD4F /* ConfirmDeletion.swift in Sources */,
 				48CB872C1FC04BAD00DBA04E /* PasswordTableViewCell.swift in Sources */,
 				4801D7A21FBDC5FE006C1FBF /* Password.swift in Sources */,
 				485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */,

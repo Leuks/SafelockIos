@@ -48,7 +48,7 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        password = Password.init(username: usernameTextField.text, website: websiteTextField.text, password: passwordTextField.text)
+        password = Password.init(index: -1, username: usernameTextField.text, website: websiteTextField.text, password: passwordTextField.text)
     }
 
     //MARK: UITextFieldDelegate

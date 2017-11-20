@@ -60,6 +60,8 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } else {
                 let newIndexPath = IndexPath(row: passwords.count, section: 0)
 
+                password.index = passwords.count
+
                 passwords += [password]
                 passwordsTableView.insertRows(at: [newIndexPath], with: .automatic)
             }
@@ -75,7 +77,6 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
 
         let addWebsite = vc.childViewControllers[0] as! AddWebsiteController
-        print("add website -> edit")
 
         addWebsite.password = self.editingPassword
     }
@@ -114,23 +115,28 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)  {
         let actionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        if searchController.isActive && searchController.searchBar.text != "" {
-            actionMenu.title = filteredPasswords[indexPath.row].website
-        } else {
-            actionMenu.title = passwords[indexPath.row].website
-        }
+        var targetArray = (searchController.isActive && searchController.searchBar.text != "") ? filteredPasswords : passwords
 
-        let editAction = UIAlertAction(title: "Edit", style: .default, handler: {
-            (_: UIAlertAction!) -> Void in
-            self.editingPassword = self.passwords[indexPath.row]
-            self.editingIndex = indexPath.row
-
-            self.performSegue(withIdentifier: "ShowAddWebsite", sender: self)
-        })
+        actionMenu.title = targetArray[indexPath.row].website
 
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {
             (alert: UIAlertAction!) -> Void in
             actionMenu.dismiss(animated: true, completion: nil)
+            let confirm = ConfirmDeletion.init(title: "Confirm deletion", message: actionMenu.title! + " will be deleted", confirm: {
+                () -> Void in
+                self.passwords.remove(at: targetArray[indexPath.row].index)
+                self.updateSearchResults(for: self.searchController)
+            })
+
+            self.present(confirm.alert!, animated: true, completion: nil)
+        })
+
+        let editAction = UIAlertAction(title: "Edit", style: .default, handler: {
+            (_: UIAlertAction!) -> Void in
+            self.editingPassword = targetArray[indexPath.row]
+            self.editingIndex = indexPath.row
+
+            self.performSegue(withIdentifier: "ShowAddWebsite", sender: self)
         })
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
@@ -168,7 +174,6 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
 
-
             return attributedString
         }
 
@@ -180,7 +185,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: Private methods
 
     private func loadPasswords() {
-        let password = Password.init(username: "johndoe", website: "google.fr", password: "foobar")
+        let password = Password.init(index: 0, username: "johndoe", website: "google.fr", password: "foobar")
 
         passwords += [password!]
     }

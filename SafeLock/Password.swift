@@ -10,6 +10,7 @@ import UIKit
 import Fuse
 
 class Password : Fuseable {
+    var index: Int!
     @objc dynamic var username: String!
     @objc dynamic var website: String!
     @objc dynamic var password: String!
@@ -20,7 +21,7 @@ class Password : Fuseable {
         ]
     }
 
-    init?(username: String!, website: String!, password: String!) {
+    init?(index: Int!, username: String!, website: String!, password: String!) {
         guard !website.isEmpty else {
             return nil
         }
@@ -33,6 +34,7 @@ class Password : Fuseable {
             return nil
         }
 
+        self.index = index
         self.username = username
         self.website = website
         self.password = password

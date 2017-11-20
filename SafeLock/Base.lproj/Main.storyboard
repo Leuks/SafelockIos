@@ -127,8 +127,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRn-Xw-879">
+                                <rect key="frame" x="85" y="315" width="150" height="150"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WRn-Xw-879" firstAttribute="centerX" secondItem="bpE-Xa-F4C" secondAttribute="centerX" id="lv1-b1-ayQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bpE-Xa-F4C"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Website" id="yWK-KC-Ku9">
