@@ -124,7 +124,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
             actionMenu.dismiss(animated: true, completion: nil)
             let confirm = ConfirmDeletion.init(title: "Confirm deletion", message: actionMenu.title! + " will be deleted", confirm: {
                 () -> Void in
-                self.passwords.remove(at: targetArray[indexPath.row].index)
+                self.removePassword(index: targetArray[indexPath.row].index)
                 self.updateSearchResults(for: self.searchController)
             })
 
@@ -188,6 +188,10 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let password = Password.init(index: 0, username: "johndoe", website: "google.fr", password: "foobar")
 
         passwords += [password!]
+    }
+
+    private func removePassword(index: Int) {
+        passwords = passwords.filter({ (password: Password) -> Bool in return password.index != index })
     }
 }
 
