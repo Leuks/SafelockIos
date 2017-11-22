@@ -65,6 +65,8 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 passwords += [password]
                 passwordsTableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+
+            savePasswords()
         }
     }
 
@@ -127,6 +129,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 () -> Void in
                 self.removePassword(index: targetArray[indexPath.row].index)
                 self.updateSearchResults(for: self.searchController)
+                self.savePasswords()
             })
 
             self.present(confirm.alert!, animated: true, completion: nil)
@@ -186,13 +189,28 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: Private methods
 
     private func loadPasswords() {
-        let password = Password.init(index: 0, username: "johndoe", website: "google.fr", password: "foobar")
+        // let password = Password.init(index: 0, username: "johndoe", website: "google.fr", password: "foobar")
 
-        passwords += [password!]
+        let storedPasswords = NSKeyedUnarchiver.unarchiveObject(withFile: Password.ArchiveURL.path) as? [Password]
+
+        // passwords += [password!]
+        if (storedPasswords != nil) {
+            passwords += storedPasswords!
+        }
     }
 
     private func removePassword(index: Int) {
         passwords = passwords.filter({ (password: Password) -> Bool in return password.index != index })
+    }
+
+    private func savePasswords() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(passwords, toFile: Password.ArchiveURL.path)
+
+        if (isSuccessfulSave) {
+            print("loaded passwords")
+        } else {
+            print("couldn't load passwords")
+        }
     }
 }
 
