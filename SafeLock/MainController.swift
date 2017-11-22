@@ -108,6 +108,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         cell.websiteLabel.attributedText = item
         cell.usernameLabel.text = passwords[indexPath.row].username
+        cell.logoImageView.image = passwords[indexPath.row].image
 
         return cell
     }

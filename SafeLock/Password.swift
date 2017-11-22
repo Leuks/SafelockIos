@@ -11,6 +11,7 @@ import Fuse
 
 class Password : Fuseable {
     var index: Int!
+    var image: UIImage?
     @objc dynamic var username: String!
     @objc dynamic var website: String!
     @objc dynamic var password: String!

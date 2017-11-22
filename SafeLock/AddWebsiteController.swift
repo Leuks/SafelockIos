@@ -50,6 +50,7 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
         }
 
         password = Password.init(index: -1, username: usernameTextField.text, website: websiteTextField.text, password: passwordTextField.text)
+        password?.image = logoImageView.image
     }
 
     //MARK: UITextFieldDelegate
@@ -71,12 +72,6 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
 
         if (!(websiteTextField.text?.isEmpty)!) {
             let urlStr = "https://logo.clearbit.com/" + (websiteTextField.text)! + "?size=450"
-
-            print(urlStr)
-
-//            let url = URL(string: urlStr)
-//            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-//            logoImageView.image = UIImage(data: data!)
 
             logoImageView.downloadedFrom(url: URL(string: urlStr)!)
         }
