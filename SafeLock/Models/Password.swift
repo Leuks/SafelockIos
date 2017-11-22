@@ -9,7 +9,7 @@
 import UIKit
 import Fuse
 
-struct PropertyKey {
+struct PasswordPropertyKey {
     static let index = "index"
     static let website = "website"
     static let username = "name"
@@ -56,31 +56,31 @@ class Password : NSObject, NSCoding, Fuseable {
 
     func encode(with aCoder: NSCoder) {
         print("encode", index)
-        aCoder.encode(index, forKey: PropertyKey.index)
-        aCoder.encode(website, forKey: PropertyKey.website)
-        aCoder.encode(username, forKey: PropertyKey.username)
-        aCoder.encode(password, forKey: PropertyKey.password)
-        aCoder.encode(image, forKey: PropertyKey.image)
+        aCoder.encode(index, forKey: PasswordPropertyKey.index)
+        aCoder.encode(website, forKey: PasswordPropertyKey.website)
+        aCoder.encode(username, forKey: PasswordPropertyKey.username)
+        aCoder.encode(password, forKey: PasswordPropertyKey.password)
+        aCoder.encode(image, forKey: PasswordPropertyKey.image)
     }
 
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let index = aDecoder.decodeObject(forKey: PropertyKey.index) as? Int else {
+        guard let index = aDecoder.decodeObject(forKey: PasswordPropertyKey.index) as? Int else {
             return nil
         }
 
-        guard let website = aDecoder.decodeObject(forKey: PropertyKey.website) as? String else {
+        guard let website = aDecoder.decodeObject(forKey: PasswordPropertyKey.website) as? String else {
             return nil
         }
 
-        guard let username = aDecoder.decodeObject(forKey: PropertyKey.username) as? String else {
+        guard let username = aDecoder.decodeObject(forKey: PasswordPropertyKey.username) as? String else {
             return nil
         }
 
-        guard let password = aDecoder.decodeObject(forKey: PropertyKey.password) as? String else {
+        guard let password = aDecoder.decodeObject(forKey: PasswordPropertyKey.password) as? String else {
             return nil
         }
 
-        let image = aDecoder.decodeObject(forKey: PropertyKey.image) as? UIImage
+        let image = aDecoder.decodeObject(forKey: PasswordPropertyKey.image) as? UIImage
 
         self.init(index: index, username: username, website: website, password: password)
         self.image = image

@@ -178,16 +178,16 @@
             </objects>
             <point key="canvasLocation" x="3142.5" y="-78.16901408450704"/>
         </scene>
-        <!--SafeLock-->
+        <!--CreateAccount-->
         <scene sceneID="rcU-rj-wvW">
             <objects>
-                <viewController id="h5W-Li-BoM" sceneMemberID="viewController">
+                <viewController title="CreateAccount" id="h5W-Li-BoM" customClass="CreateAccountController" customModule="SafeLock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0SA-Xo-DJI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jq3-vV-On7">
-                                <rect key="frame" x="20" y="244" width="280" height="144"/>
+                                <rect key="frame" x="20" y="232" width="280" height="169"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YB3-Wk-ErM">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
@@ -214,6 +214,12 @@
                                             <segue destination="xX4-kV-GXk" kind="presentation" id="B8Y-4B-tir"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txk-Vv-8M8" userLabel="Les mots de passes ne correspondent pas">
+                                        <rect key="frame" x="0.0" y="152" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="0.30724914704870021" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -226,15 +232,22 @@
                         <viewLayoutGuide key="safeArea" id="3of-LM-RbT"/>
                     </view>
                     <navigationItem key="navigationItem" title="SafeLock" id="47T-1W-SVv"/>
+                    <connections>
+                        <outlet property="errorLabel" destination="Txk-Vv-8M8" id="vUP-5G-nMK"/>
+                        <outlet property="passwordConfirmationTextField" destination="wVM-nN-in5" id="imT-Fw-btB"/>
+                        <outlet property="passwordTextField" destination="o8A-3p-75O" id="0zf-b8-aB5"/>
+                        <outlet property="saveButton" destination="OrD-dD-WfM" id="GsG-ZF-YKU"/>
+                        <outlet property="usernameTextField" destination="YB3-Wk-ErM" id="Fey-r9-ltr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Xd-zh-sRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-647" y="-528"/>
+            <point key="canvasLocation" x="-648.75" y="-528.16901408450701"/>
         </scene>
-        <!--SafeLock-->
+        <!--Login-->
         <scene sceneID="YCK-p6-ICb">
             <objects>
-                <viewController id="w3r-e4-4Sf" sceneMemberID="viewController">
+                <viewController title="Login" id="w3r-e4-4Sf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ddZ-W1-zf0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
