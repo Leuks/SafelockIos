@@ -28,6 +28,8 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
             websiteTextField.text = password?.website
             usernameTextField.text = password?.username
             passwordTextField.text = password?.password
+
+            loadImage()
         }
 
         updateSaveButtonState()
@@ -71,9 +73,7 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
         updateSaveButtonState()
 
         if (!(websiteTextField.text?.isEmpty)!) {
-            let urlStr = "https://logo.clearbit.com/" + (websiteTextField.text)! + "?size=450"
-
-            logoImageView.downloadedFrom(url: URL(string: urlStr)!)
+            loadImage()
         }
 
         guard textField == websiteTextField else {
@@ -103,5 +103,11 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
         let password = passwordTextField.text ?? ""
 
         saveButton.isEnabled = !website.isEmpty && !username.isEmpty && !password.isEmpty
+    }
+
+    private func loadImage() {
+        let urlStr = "https://logo.clearbit.com/" + (websiteTextField.text)! + "?size=450"
+
+        logoImageView.downloadedFrom(url: URL(string: urlStr)!)
     }
 }
