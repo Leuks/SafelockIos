@@ -13,6 +13,7 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
+    @IBOutlet weak var logoImageView: UIImageView!
 
     var password: Password?
 
@@ -59,10 +60,33 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        updateSaveButtonState()
+
+        return true
+    }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSaveButtonState()
 
+        if (!(websiteTextField.text?.isEmpty)!) {
+            let urlStr = "https://logo.clearbit.com/" + (websiteTextField.text)! + "?size=450"
+
+            print(urlStr)
+
+//            let url = URL(string: urlStr)
+//            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+//            logoImageView.image = UIImage(data: data!)
+
+            logoImageView.downloadedFrom(url: URL(string: urlStr)!)
+        }
+
         guard textField == websiteTextField else {
+            return
+        }
+
+        guard !(textField.text?.isEmpty)! else {
+            navigationItem.title = "Add a website"
             return
         }
 
