@@ -110,7 +110,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         cell.websiteLabel.attributedText = item
         cell.usernameLabel.text = passwords[indexPath.row].username
-        cell.logoImageView.image = passwords[indexPath.row].image
+        cell.loadImage()
 
         return cell
     }
@@ -189,11 +189,8 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: Private methods
 
     private func loadPasswords() {
-        // let password = Password.init(index: 0, username: "johndoe", website: "google.fr", password: "foobar")
+        let storedPasswords = User.current()?.passwords
 
-        let storedPasswords = NSKeyedUnarchiver.unarchiveObject(withFile: Password.ArchiveURL.path) as? [Password]
-
-        // passwords += [password!]
         if (storedPasswords != nil) {
             passwords += storedPasswords!
         }
@@ -204,13 +201,9 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     private func savePasswords() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(passwords, toFile: Password.ArchiveURL.path)
+        User.current()?.passwords = passwords
 
-        if (isSuccessfulSave) {
-            print("loaded passwords")
-        } else {
-            print("couldn't load passwords")
-        }
+        User.saveAll()
     }
 }
 

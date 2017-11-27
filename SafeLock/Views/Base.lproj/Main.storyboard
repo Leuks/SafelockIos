@@ -59,9 +59,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="logoImageView" destination="5Eu-qJ-pxH" id="qmZ-x6-3uM"/>
-                                            <outlet property="usernameLabel" destination="CdC-LK-ykm" id="ZJ5-HG-bAV"/>
-                                            <outlet property="websiteLabel" destination="acS-4e-xoH" id="jnf-Lt-KW7"/>
+                                            <outlet property="logoImageView" destination="5Eu-qJ-pxH" id="T3n-7w-YWP"/>
+                                            <outlet property="usernameLabel" destination="CdC-LK-ykm" id="zPG-j9-ySk"/>
+                                            <outlet property="websiteLabel" destination="acS-4e-xoH" id="6T3-cs-kRb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -247,13 +247,13 @@
         <!--Login-->
         <scene sceneID="YCK-p6-ICb">
             <objects>
-                <viewController title="Login" id="w3r-e4-4Sf" sceneMemberID="viewController">
+                <viewController title="Login" id="w3r-e4-4Sf" customClass="LoginController" customModule="SafeLock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ddZ-W1-zf0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="un8-39-h7j">
-                                <rect key="frame" x="20" y="263" width="280" height="106"/>
+                                <rect key="frame" x="20" y="250.5" width="280" height="131"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-jj-wdX">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
@@ -270,14 +270,17 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvM-nt-I1h">
                                         <rect key="frame" x="0.0" y="76" width="280" height="30"/>
                                         <state key="normal" title="Login"/>
-                                        <connections>
-                                            <segue destination="xX4-kV-GXk" kind="presentation" id="QtX-SZ-BsT"/>
-                                        </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iso-pZ-RXM" userLabel="Les mots de passes ne correspondent pas">
+                                        <rect key="frame" x="0.0" y="114" width="280" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="0.307249147" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-2e-hNl">
-                                <rect key="frame" x="97.5" y="399" width="126" height="30"/>
+                                <rect key="frame" x="97.5" y="411.5" width="126" height="30"/>
                                 <state key="normal" title="Create an account"/>
                                 <connections>
                                     <segue destination="h5W-Li-BoM" kind="show" id="NQy-Fy-Y2S"/>
@@ -297,6 +300,13 @@
                     <navigationItem key="navigationItem" title="SafeLock" id="3Tv-gc-yyq">
                         <barButtonItem key="backBarButtonItem" title="Login" id="CSe-fj-HvU"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="errorTextField" destination="Iso-pZ-RXM" id="Uxl-wa-JHI"/>
+                        <outlet property="loginButton" destination="JvM-nt-I1h" id="nxx-bF-csn"/>
+                        <outlet property="passwordTextField" destination="BvW-Sh-8jv" id="iXW-O5-DCa"/>
+                        <outlet property="usernameTextField" destination="Ors-jj-wdX" id="Zzt-sa-iag"/>
+                        <segue destination="xX4-kV-GXk" kind="presentation" identifier="LoginSuccessful" id="qOh-Ez-GIy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drk-2n-y09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,6 +371,6 @@
         <image name="placeholder" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B8Y-4B-tir"/>
+        <segue reference="W2u-af-EQx"/>
     </inferredMetricsTieBreakers>
 </document>

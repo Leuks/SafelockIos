@@ -52,7 +52,6 @@ class AddWebsiteController: UIViewController, UITextFieldDelegate {
         }
 
         password = Password.init(index: -1, username: usernameTextField.text, website: websiteTextField.text, password: passwordTextField.text)
-        password?.image = logoImageView.image
     }
 
     //MARK: UITextFieldDelegate

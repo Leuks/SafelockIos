@@ -13,12 +13,32 @@
 		4811BE601FBCE7EE0094E915 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4811BE5F1FBCE7EE0094E915 /* MainController.swift */; };
 		4811BE631FBCE7EE0094E915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4811BE611FBCE7EE0094E915 /* Main.storyboard */; };
 		4811BE681FBCE7EE0094E915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4811BE661FBCE7EE0094E915 /* LaunchScreen.storyboard */; };
+		481E50D31FCA1E220051E4F5 /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E50D11FCA1E220051E4F5 /* Crypto.framework */; };
+		481E50D41FCA1E220051E4F5 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481E50D21FCA1E220051E4F5 /* CommonCrypto.framework */; };
 		482085071FC5E5DF0013B33B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482085061FC5E5DF0013B33B /* User.swift */; };
 		482085091FC5ECA00013B33B /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482085081FC5ECA00013B33B /* CreateAccountController.swift */; };
+		4821AF0C1FCA1FA300007049 /* CommonCrypto.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 481E50D21FCA1E220051E4F5 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4821AF0D1FCA1FA300007049 /* Crypto.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 481E50D11FCA1E220051E4F5 /* Crypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */; };
 		487A88361FC31B08003CFD4F /* ConfirmDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */; };
+		48ACCA961FC60E3B003685E2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ACCA951FC60E3A003685E2 /* LoginController.swift */; };
 		48CB872C1FC04BAD00DBA04E /* PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4821AF0B1FCA1F7900007049 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4821AF0C1FCA1FA300007049 /* CommonCrypto.framework in Copy Files */,
+				4821AF0D1FCA1FA300007049 /* Crypto.framework in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0F42C0103DC22AAECB33B46B /* Pods_SafeLock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeLock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,11 +49,15 @@
 		4811BE621FBCE7EE0094E915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4811BE671FBCE7EE0094E915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4811BE691FBCE7EE0094E915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		481E50D11FCA1E220051E4F5 /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = Carthage/Build/iOS/Crypto.framework; sourceTree = "<group>"; };
+		481E50D21FCA1E220051E4F5 /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
 		482085061FC5E5DF0013B33B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		482085081FC5ECA00013B33B /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
+		4822D18C1FCA1196006DB4AB /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
 		485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWebsiteController.swift; sourceTree = "<group>"; };
 		487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDeletion.swift; sourceTree = "<group>"; };
 		48A40DC51FC5B0C400305D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		48ACCA951FC60E3A003685E2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewCell.swift; sourceTree = "<group>"; };
 		726DA8716AE1F1B303DB1843 /* Pods-SafeLock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeLock.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeLock/Pods-SafeLock.release.xcconfig"; sourceTree = "<group>"; };
 		C6296C816BF212A6C7F76957 /* Pods-SafeLock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeLock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeLock/Pods-SafeLock.debug.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +69,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D6A66E5F941FE1BF1C3CD2 /* Pods_SafeLock.framework in Frameworks */,
+				481E50D31FCA1E220051E4F5 /* Crypto.framework in Frameworks */,
+				481E50D41FCA1E220051E4F5 /* CommonCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +116,7 @@
 				48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */,
 				487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */,
 				482085081FC5ECA00013B33B /* CreateAccountController.swift */,
+				48ACCA951FC60E3A003685E2 /* LoginController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +142,9 @@
 		DA5D6C50FE79DBFC5BE94446 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				481E50D21FCA1E220051E4F5 /* CommonCrypto.framework */,
+				481E50D11FCA1E220051E4F5 /* Crypto.framework */,
+				4822D18C1FCA1196006DB4AB /* CryptoSwift.framework */,
 				0F42C0103DC22AAECB33B46B /* Pods_SafeLock.framework */,
 			);
 			name = Frameworks;
@@ -142,6 +172,7 @@
 				4811BE581FBCE7EE0094E915 /* Resources */,
 				CF2D5BCEEDAAF17FE8EC1665 /* [CP] Embed Pods Frameworks */,
 				903DC5576A738CF8D4EA5037 /* [CP] Copy Pods Resources */,
+				4821AF0B1FCA1F7900007049 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -260,6 +291,7 @@
 				48CB872C1FC04BAD00DBA04E /* PasswordTableViewCell.swift in Sources */,
 				4801D7A21FBDC5FE006C1FBF /* Password.swift in Sources */,
 				485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */,
+				48ACCA961FC60E3B003685E2 /* LoginController.swift in Sources */,
 				4811BE601FBCE7EE0094E915 /* MainController.swift in Sources */,
 				482085091FC5ECA00013B33B /* CreateAccountController.swift in Sources */,
 				4811BE5E1FBCE7EE0094E915 /* AppDelegate.swift in Sources */,
@@ -402,6 +434,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E7NC6M4TZD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SafeLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "if26.juchault-lemarie.SafeLock";
@@ -417,6 +454,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E7NC6M4TZD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SafeLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "if26.juchault-lemarie.SafeLock";
