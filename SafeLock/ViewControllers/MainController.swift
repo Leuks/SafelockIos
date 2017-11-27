@@ -135,6 +135,20 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.present(confirm.alert!, animated: true, completion: nil)
         })
 
+        let viewPasswordAction = UIAlertAction(title: "View password", style: .default, handler: {
+            (_: UIAlertAction) -> Void in
+            let password = targetArray[indexPath.row]
+            let alert = UIAlertController(title: "Password for " + password.website, message: "", preferredStyle: .alert)
+
+            alert.setValue(password.password.toRedNumbers(), forKey: "attributedMessage")
+
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+
+            self.present(alert, animated: true, completion: nil)
+        })
+
         let editAction = UIAlertAction(title: "Edit", style: .default, handler: {
             (_: UIAlertAction!) -> Void in
             self.editingPassword = targetArray[indexPath.row]
@@ -149,6 +163,7 @@ class MainController: UIViewController, UITableViewDelegate, UITableViewDataSour
         })
 
         actionMenu.addAction(deleteAction)
+        actionMenu.addAction(viewPasswordAction)
         actionMenu.addAction(editAction)
         actionMenu.addAction(cancelAction)
 

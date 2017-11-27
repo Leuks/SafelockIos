@@ -37,8 +37,6 @@ class LoginController: UIViewController {
             return
         }
 
-        let users = User.all()
-
         let user = User.all().first(where: { (user: User) -> Bool in return user.username == username })
 
         guard user != nil else {

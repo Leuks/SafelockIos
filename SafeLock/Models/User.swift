@@ -16,6 +16,7 @@ struct UserPropertyKey {
     static let username = "username"
     static let password = "password"
     static let cipheredPasswords = "cipheredPasswords"
+    static let iv = "iv"
 }
 
 class User : NSObject, NSCoding {
@@ -25,6 +26,7 @@ class User : NSObject, NSCoding {
     var clearPassword: String?
     var passwords = [Password]()
     var cipheredPasswords: Data!
+    var iv: Data!
 
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("users")
@@ -40,6 +42,7 @@ class User : NSObject, NSCoding {
 
         self.username = username
         self.password = password
+        self.iv = Data()
         self.cipheredPasswords = Data()
         self.currentIndex = 0
     }
@@ -54,7 +57,12 @@ class User : NSObject, NSCoding {
         clearPassword = pwd
 
         do {
-            try String(data: cipheredPasswords, encoding: .utf8)?.components(separatedBy: "\n")
+            print(cipheredPasswords)
+            print(iv)
+
+            let deciphered = String(bytes: try cipheredPasswords.aes256Decrypt(withKey: clearPassword!, initializationVector: iv), encoding: .utf8)
+
+            try deciphered?.components(separatedBy: "\n")
                 .forEach({ (line: String) in
                     let password = try JSONDecoder().decode(Password.self, from: line.data(using: .utf8)!)
 
@@ -81,13 +89,24 @@ class User : NSObject, NSCoding {
         }
 
         do {
+            let iv = Data.generateInitializationVector()
+
             let passwordsStringified = try passwords
                 .map({
                     (password: Password) -> String in return (try String(data: JSONEncoder().encode(password), encoding: .utf8))!
                 })
                 .joined(separator: "\n")
 
-            aCoder.encode(passwordsStringified.data(using: .utf8), forKey: UserPropertyKey.cipheredPasswords)
+            print(passwordsStringified)
+
+            let cipher = try passwordsStringified
+                .data(using: .utf8)!
+                .aes256Encrypt(withKey: self.clearPassword!, initializationVector: iv)
+
+            print(cipher)
+
+            aCoder.encode(iv, forKey: UserPropertyKey.iv)
+            aCoder.encode(cipher, forKey: UserPropertyKey.cipheredPasswords)
         } catch {
             print(error)
         }
@@ -107,8 +126,13 @@ class User : NSObject, NSCoding {
             return nil
         }
 
+        guard let iv = aDecoder.decodeObject(forKey: UserPropertyKey.iv) as? Data else {
+            return nil
+        }
+
         self.init(username: username, password: password)
         self.cipheredPasswords = ciphered
+        self.iv = iv
     }
 
     //MARK: singleton
@@ -126,7 +150,6 @@ class User : NSObject, NSCoding {
     }
 
     static func saveAll() {
-        print(users)
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(users, toFile: User.ArchiveURL.path)
 
         if (isSuccessfulSave) {

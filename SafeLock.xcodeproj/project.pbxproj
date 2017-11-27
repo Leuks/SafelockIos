@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		40D6A66E5F941FE1BF1C3CD2 /* Pods_SafeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F42C0103DC22AAECB33B46B /* Pods_SafeLock.framework */; };
 		4801D7A21FBDC5FE006C1FBF /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4801D7A11FBDC5FE006C1FBF /* Password.swift */; };
+		4810C3AF1FCC44B4006B7AB4 /* UIImage+downloadedFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810C3AE1FCC44B4006B7AB4 /* UIImage+downloadedFrom.swift */; };
 		4811BE5E1FBCE7EE0094E915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4811BE5D1FBCE7EE0094E915 /* AppDelegate.swift */; };
 		4811BE601FBCE7EE0094E915 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4811BE5F1FBCE7EE0094E915 /* MainController.swift */; };
 		4811BE631FBCE7EE0094E915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4811BE611FBCE7EE0094E915 /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 		485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */; };
 		487A88361FC31B08003CFD4F /* ConfirmDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */; };
 		48ACCA961FC60E3B003685E2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ACCA951FC60E3A003685E2 /* LoginController.swift */; };
+		48B314521FCC480F0050CEA9 /* NSData+MyExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B3144F1FCC480F0050CEA9 /* NSData+MyExtensions.m */; };
+		48B314531FCC480F0050CEA9 /* Data+MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B314501FCC480F0050CEA9 /* Data+MyExtensions.swift */; };
+		48B314551FCC54370050CEA9 /* String+toRedNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B314541FCC54370050CEA9 /* String+toRedNumbers.swift */; };
 		48CB872C1FC04BAD00DBA04E /* PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,7 @@
 /* Begin PBXFileReference section */
 		0F42C0103DC22AAECB33B46B /* Pods_SafeLock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeLock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4801D7A11FBDC5FE006C1FBF /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		4810C3AE1FCC44B4006B7AB4 /* UIImage+downloadedFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+downloadedFrom.swift"; sourceTree = "<group>"; };
 		4811BE5A1FBCE7EE0094E915 /* SafeLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4811BE5D1FBCE7EE0094E915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4811BE5F1FBCE7EE0094E915 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -58,6 +63,11 @@
 		487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDeletion.swift; sourceTree = "<group>"; };
 		48A40DC51FC5B0C400305D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48ACCA951FC60E3A003685E2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		48B3144E1FCC480F0050CEA9 /* SafeLock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SafeLock-Bridging-Header.h"; sourceTree = "<group>"; };
+		48B3144F1FCC480F0050CEA9 /* NSData+MyExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MyExtensions.m"; sourceTree = "<group>"; };
+		48B314501FCC480F0050CEA9 /* Data+MyExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+MyExtensions.swift"; sourceTree = "<group>"; };
+		48B314511FCC480F0050CEA9 /* NSData+MyExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MyExtensions.h"; sourceTree = "<group>"; };
+		48B314541FCC54370050CEA9 /* String+toRedNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+toRedNumbers.swift"; sourceTree = "<group>"; };
 		48CB872B1FC04BAD00DBA04E /* PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewCell.swift; sourceTree = "<group>"; };
 		726DA8716AE1F1B303DB1843 /* Pods-SafeLock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeLock.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeLock/Pods-SafeLock.release.xcconfig"; sourceTree = "<group>"; };
 		C6296C816BF212A6C7F76957 /* Pods-SafeLock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeLock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeLock/Pods-SafeLock.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +108,7 @@
 		4811BE5C1FBCE7EE0094E915 /* SafeLock */ = {
 			isa = PBXGroup;
 			children = (
+				48B3144D1FCC47AC0050CEA9 /* lib */,
 				482085051FC5E5CB0013B33B /* Views */,
 				482085041FC5E5BE0013B33B /* Models */,
 				482085031FC5E5780013B33B /* ViewControllers */,
@@ -135,8 +146,21 @@
 			children = (
 				4811BE611FBCE7EE0094E915 /* Main.storyboard */,
 				4811BE661FBCE7EE0094E915 /* LaunchScreen.storyboard */,
+				4810C3AE1FCC44B4006B7AB4 /* UIImage+downloadedFrom.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		48B3144D1FCC47AC0050CEA9 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				48B314501FCC480F0050CEA9 /* Data+MyExtensions.swift */,
+				48B314511FCC480F0050CEA9 /* NSData+MyExtensions.h */,
+				48B3144F1FCC480F0050CEA9 /* NSData+MyExtensions.m */,
+				48B3144E1FCC480F0050CEA9 /* SafeLock-Bridging-Header.h */,
+				48B314541FCC54370050CEA9 /* String+toRedNumbers.swift */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		DA5D6C50FE79DBFC5BE94446 /* Frameworks */ = {
@@ -195,6 +219,7 @@
 				TargetAttributes = {
 					4811BE591FBCE7EE0094E915 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -289,11 +314,15 @@
 			files = (
 				487A88361FC31B08003CFD4F /* ConfirmDeletion.swift in Sources */,
 				48CB872C1FC04BAD00DBA04E /* PasswordTableViewCell.swift in Sources */,
+				4810C3AF1FCC44B4006B7AB4 /* UIImage+downloadedFrom.swift in Sources */,
 				4801D7A21FBDC5FE006C1FBF /* Password.swift in Sources */,
 				485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */,
+				48B314531FCC480F0050CEA9 /* Data+MyExtensions.swift in Sources */,
 				48ACCA961FC60E3B003685E2 /* LoginController.swift in Sources */,
 				4811BE601FBCE7EE0094E915 /* MainController.swift in Sources */,
+				48B314521FCC480F0050CEA9 /* NSData+MyExtensions.m in Sources */,
 				482085091FC5ECA00013B33B /* CreateAccountController.swift in Sources */,
+				48B314551FCC54370050CEA9 /* String+toRedNumbers.swift in Sources */,
 				4811BE5E1FBCE7EE0094E915 /* AppDelegate.swift in Sources */,
 				482085071FC5E5DF0013B33B /* User.swift in Sources */,
 			);
@@ -433,6 +462,7 @@
 			baseConfigurationReference = C6296C816BF212A6C7F76957 /* Pods-SafeLock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = E7NC6M4TZD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,6 +473,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "if26.juchault-lemarie.SafeLock";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SafeLock/lib/SafeLock-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,6 +485,7 @@
 			baseConfigurationReference = 726DA8716AE1F1B303DB1843 /* Pods-SafeLock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = E7NC6M4TZD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,6 +496,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "if26.juchault-lemarie.SafeLock";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SafeLock/lib/SafeLock-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
