@@ -24,7 +24,7 @@ class User : NSObject, NSCoding {
     var password: String!
     var clearPassword: String?
     var passwords = [Password]()
-    var cipheredPasswords: String!
+    var cipheredPasswords: Data!
 
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("users")
@@ -40,13 +40,12 @@ class User : NSObject, NSCoding {
 
         self.username = username
         self.password = password
-        self.cipheredPasswords = ""
+        self.cipheredPasswords = Data()
         self.currentIndex = 0
     }
 
     //MARK: public
     func login(pwd: String) -> Bool {
-        print(users)
         guard password == pwd.sha512 else {
             print("refused because of pwd")
             return false
@@ -55,7 +54,7 @@ class User : NSObject, NSCoding {
         clearPassword = pwd
 
         do {
-            try cipheredPasswords.components(separatedBy: "\n")
+            try String(data: cipheredPasswords, encoding: .utf8)?.components(separatedBy: "\n")
                 .forEach({ (line: String) in
                     let password = try JSONDecoder().decode(Password.self, from: line.data(using: .utf8)!)
 
@@ -88,9 +87,7 @@ class User : NSObject, NSCoding {
                 })
                 .joined(separator: "\n")
 
-            print(passwordsStringified)
-
-            aCoder.encode(passwordsStringified, forKey: UserPropertyKey.cipheredPasswords)
+            aCoder.encode(passwordsStringified.data(using: .utf8), forKey: UserPropertyKey.cipheredPasswords)
         } catch {
             print(error)
         }
@@ -106,7 +103,7 @@ class User : NSObject, NSCoding {
             return nil
         }
 
-        guard let ciphered = aDecoder.decodeObject(forKey: UserPropertyKey.cipheredPasswords) as? String else {
+        guard let ciphered = aDecoder.decodeObject(forKey: UserPropertyKey.cipheredPasswords) as? Data else {
             return nil
         }
 
