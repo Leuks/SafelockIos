@@ -25,10 +25,12 @@ import Foundation
 public extension Data {
     
     public static func generateInitializationVector() -> Data {
-        
-        var uuidBytes: [UInt8] = [UInt8](repeating: 0, count: 16)
-        NSUUID().getBytes(&uuidBytes)
-        return Data(bytes: &uuidBytes, count: 16)
+        var data = Data(count: 16)
+        _ = data.withUnsafeMutableBytes {
+            SecRandomCopyBytes(kSecRandomDefault, data.count, $0)
+        }
+
+        return data
     }
     
     public func aes256Encrypt(withKey: String, initializationVector: Data?) throws -> Data {

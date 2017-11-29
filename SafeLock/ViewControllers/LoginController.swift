@@ -33,18 +33,22 @@ class LoginController: UIViewController {
         let password = passwordTextField.text
 
         guard !(username?.isEmpty)! || !(password?.isEmpty)! else {
+            print("refused because of field")
             errorTextField.text = "Invalid login"
             return
         }
 
         let user = User.all().first(where: { (user: User) -> Bool in return user.username == username })
+        let users = User.all()
 
         guard user != nil else {
+            print("refused because of not found user")
             errorTextField.text = "Invalid login"
             return
         }
 
         guard user!.login(pwd: password!) else {
+            print("refused because of login")
             errorTextField.text = "Invalid login"
             return
         }

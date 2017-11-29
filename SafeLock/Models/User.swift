@@ -56,10 +56,9 @@ class User : NSObject, NSCoding {
 
         clearPassword = pwd
 
-        do {
-            print(cipheredPasswords)
-            print(iv)
+        print("set clear password to " + pwd)
 
+        do {
             let deciphered = String(bytes: try cipheredPasswords.aes256Decrypt(withKey: clearPassword!, initializationVector: iv), encoding: .utf8)
 
             try deciphered?.components(separatedBy: "\n")
@@ -83,13 +82,17 @@ class User : NSObject, NSCoding {
         aCoder.encode(username, forKey: UserPropertyKey.username)
         aCoder.encode(password, forKey: UserPropertyKey.password)
 
-        if self.clearPassword == nil {
+        if clearPassword == nil {
             aCoder.encode(cipheredPasswords, forKey: UserPropertyKey.cipheredPasswords)
+            print("save other guy " + username)
             return
         }
 
         do {
             let iv = Data.generateInitializationVector()
+
+            print("iv count")
+            print(iv.count)
 
             let passwordsStringified = try passwords
                 .map({
@@ -103,7 +106,7 @@ class User : NSObject, NSCoding {
                 .data(using: .utf8)!
                 .aes256Encrypt(withKey: self.clearPassword!, initializationVector: iv)
 
-            print(cipher)
+            print(iv.count)
 
             aCoder.encode(iv, forKey: UserPropertyKey.iv)
             aCoder.encode(cipher, forKey: UserPropertyKey.cipheredPasswords)
@@ -115,18 +118,22 @@ class User : NSObject, NSCoding {
 
     required convenience init?(coder aDecoder: NSCoder) {
         guard let username = aDecoder.decodeObject(forKey: UserPropertyKey.username) as? String else {
+            print("no username")
             return nil
         }
 
         guard let password = aDecoder.decodeObject(forKey: UserPropertyKey.password) as? String else {
+            print("no password")
             return nil
         }
 
         guard let ciphered = aDecoder.decodeObject(forKey: UserPropertyKey.cipheredPasswords) as? Data else {
+            print("no cip")
             return nil
         }
 
         guard let iv = aDecoder.decodeObject(forKey: UserPropertyKey.iv) as? Data else {
+            print("no iv")
             return nil
         }
 
@@ -139,6 +146,8 @@ class User : NSObject, NSCoding {
 
     static func loadAll() {
         let storedUsers = NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? [User]
+        print("got ")
+        print(storedUsers?.count)
 
         if (storedUsers != nil) {
             users += storedUsers!

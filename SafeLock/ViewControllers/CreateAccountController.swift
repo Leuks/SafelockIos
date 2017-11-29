@@ -76,9 +76,9 @@ class CreateAccountController: UIViewController {
 
         User.add(user: user!)
 
-        User.saveAll()
         if (user?.login(pwd: passwordTextField.text!))! {
             print("register succeded")
+            User.saveAll()
         }
     }
 }
