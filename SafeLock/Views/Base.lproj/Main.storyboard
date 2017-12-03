@@ -186,6 +186,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="G3u-1S-JOw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jq3-vV-On7">
                                 <rect key="frame" x="20" y="232" width="280" height="169"/>
                                 <subviews>
@@ -209,7 +213,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrD-dD-WfM">
                                         <rect key="frame" x="0.0" y="114" width="280" height="30"/>
-                                        <state key="normal" title="Create an account"/>
+                                        <state key="normal" title="Create an account">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="xX4-kV-GXk" kind="presentation" id="B8Y-4B-tir"/>
                                         </connections>
@@ -252,6 +258,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="JFr-dw-NSq">
+                                <rect key="frame" x="0.0" y="32" width="320" height="568"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="un8-39-h7j">
                                 <rect key="frame" x="20" y="250.5" width="280" height="131"/>
                                 <subviews>
@@ -269,7 +278,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvM-nt-I1h">
                                         <rect key="frame" x="0.0" y="76" width="280" height="30"/>
-                                        <state key="normal" title="Login"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iso-pZ-RXM" userLabel="Les mots de passes ne correspondent pas">
                                         <rect key="frame" x="0.0" y="114" width="280" height="17"/>
@@ -281,7 +292,10 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-2e-hNl">
                                 <rect key="frame" x="97.5" y="411.5" width="126" height="30"/>
-                                <state key="normal" title="Create an account"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Create an account">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="h5W-Li-BoM" kind="show" id="NQy-Fy-Y2S"/>
                                 </connections>
@@ -290,9 +304,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OJk-2e-hNl" firstAttribute="centerX" secondItem="krV-1X-ndm" secondAttribute="centerX" id="9yO-em-VwB"/>
+                            <constraint firstItem="JFr-dw-NSq" firstAttribute="width" secondItem="ddZ-W1-zf0" secondAttribute="width" id="PlZ-UB-28v"/>
+                            <constraint firstItem="JFr-dw-NSq" firstAttribute="centerY" secondItem="krV-1X-ndm" secondAttribute="centerY" id="TA2-Hd-6pY"/>
                             <constraint firstItem="un8-39-h7j" firstAttribute="centerY" secondItem="krV-1X-ndm" secondAttribute="centerY" id="Ufj-td-Zx3"/>
                             <constraint firstItem="krV-1X-ndm" firstAttribute="trailing" secondItem="un8-39-h7j" secondAttribute="trailing" constant="20" id="adx-Z0-A7a"/>
+                            <constraint firstItem="JFr-dw-NSq" firstAttribute="height" secondItem="ddZ-W1-zf0" secondAttribute="height" id="iF1-Ab-XaG"/>
                             <constraint firstItem="OJk-2e-hNl" firstAttribute="top" secondItem="un8-39-h7j" secondAttribute="bottom" constant="30" id="j9Q-Of-psz"/>
+                            <constraint firstItem="JFr-dw-NSq" firstAttribute="centerX" secondItem="krV-1X-ndm" secondAttribute="centerX" id="nSb-4O-pAG"/>
                             <constraint firstItem="un8-39-h7j" firstAttribute="leading" secondItem="ddZ-W1-zf0" secondAttribute="leading" constant="20" id="y96-9k-pmx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="krV-1X-ndm"/>
@@ -368,9 +386,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LoginBackground" width="960" height="540"/>
         <image name="placeholder" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W2u-af-EQx"/>
+        <segue reference="B8Y-4B-tir"/>
     </inferredMetricsTieBreakers>
 </document>

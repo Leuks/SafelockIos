@@ -20,6 +20,7 @@
 		482085091FC5ECA00013B33B /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482085081FC5ECA00013B33B /* CreateAccountController.swift */; };
 		4821AF0C1FCA1FA300007049 /* CommonCrypto.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 481E50D21FCA1E220051E4F5 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4821AF0D1FCA1FA300007049 /* Crypto.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 481E50D11FCA1E220051E4F5 /* Crypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		482AFC801FD46A6200DEC19E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 482AFC7F1FD46A6200DEC19E /* Assets.xcassets */; };
 		485AF8F11FBCF7E300DDAF58 /* AddWebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */; };
 		487A88361FC31B08003CFD4F /* ConfirmDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */; };
 		48ACCA961FC60E3B003685E2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ACCA951FC60E3A003685E2 /* LoginController.swift */; };
@@ -59,9 +60,9 @@
 		482085061FC5E5DF0013B33B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		482085081FC5ECA00013B33B /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		4822D18C1FCA1196006DB4AB /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
+		482AFC7F1FD46A6200DEC19E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		485AF8F01FBCF7E300DDAF58 /* AddWebsiteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWebsiteController.swift; sourceTree = "<group>"; };
 		487A88351FC31B08003CFD4F /* ConfirmDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmDeletion.swift; sourceTree = "<group>"; };
-		48A40DC51FC5B0C400305D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48ACCA951FC60E3A003685E2 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		48B3144E1FCC480F0050CEA9 /* SafeLock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SafeLock-Bridging-Header.h"; sourceTree = "<group>"; };
 		48B3144F1FCC480F0050CEA9 /* NSData+MyExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MyExtensions.m"; sourceTree = "<group>"; };
@@ -113,8 +114,8 @@
 				482085041FC5E5BE0013B33B /* Models */,
 				482085031FC5E5780013B33B /* ViewControllers */,
 				4811BE5D1FBCE7EE0094E915 /* AppDelegate.swift */,
-				48A40DC51FC5B0C400305D42 /* Assets.xcassets */,
 				4811BE691FBCE7EE0094E915 /* Info.plist */,
+				482AFC7F1FD46A6200DEC19E /* Assets.xcassets */,
 			);
 			path = SafeLock;
 			sourceTree = "<group>";
@@ -247,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4811BE681FBCE7EE0094E915 /* LaunchScreen.storyboard in Resources */,
+				482AFC801FD46A6200DEC19E /* Assets.xcassets in Resources */,
 				4811BE631FBCE7EE0094E915 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +472,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SafeLock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "if26.juchault-lemarie.SafeLock";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,6 +496,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SafeLock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "if26.juchault-lemarie.SafeLock";
 				PRODUCT_NAME = "$(TARGET_NAME)";

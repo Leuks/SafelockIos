@@ -39,7 +39,6 @@ class LoginController: UIViewController {
         }
 
         let user = User.all().first(where: { (user: User) -> Bool in return user.username == username })
-        let users = User.all()
 
         guard user != nil else {
             print("refused because of not found user")
